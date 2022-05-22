@@ -45,7 +45,9 @@ model2 = load_model2()
 
 st.title("Customer Prediction App")
 st.markdown("This application is a Streamlit dashboard that can be used to *analyze* and **predict** customer income")
-
+st.markdown("The dataset used was found on" +
+            " [Kaggle](https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis)\
+                .")
 #########################################################
 st.header(" ")
 st.header(" ")
