@@ -201,8 +201,8 @@ if uploaded_data is not None:
         
 ####################################################
 
-st.header(" ")
-st.header(" ")
+    st.header(" ")
+    st.header(" ")
 
     colaa, colbb = st.columns(2)
 
