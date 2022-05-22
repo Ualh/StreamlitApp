@@ -18,7 +18,8 @@ st.set_page_config(
     page_title= "Customer Prediciton App",
     page_icon = "📈",
     layout="wide")
-    st.markdown("This app is meant as a tool to predict income of a set of customer. The dataset used was found on" +
+  
+  st.markdown("This app is meant as a tool to predict income of a set of customer. The dataset used was found on" +
             " [Kaggle](https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis)\
                 .")
 #########################################################
