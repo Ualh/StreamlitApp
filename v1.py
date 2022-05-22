@@ -37,7 +37,6 @@ def load_model2():
     loaded_model = pickle.load(open(filename, "rb"))
     return(loaded_model)
 
-
 data = load_data()
 model1 = load_model1()
 model2 = load_model2()
@@ -97,6 +96,7 @@ labels = ["MntWines","MntFruits","MntFishProducts","MntMeatProducts","MntSweetPr
 values = [wine , fruits , fish , meat , sweet , gold]
 colors1 = {"coral", "lightcoral", "orangered", "darkred", "tomato", "crimson"}
 
+
 df = pd.DataFrame(data)
 
 Income = model1.predict(df)
@@ -128,19 +128,6 @@ with col1:
     col1.pyplot(fig1, use_container_width=True)
 
 with col2:
-    st.header(" ")
-
-    
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-    st.header(" ")
-
-    
     st.header("Customer Purchases")
     st.dataframe(df)
     st.metric("Predicted Customer Income", Income, delta = round(difference, 2), delta_color="normal")
@@ -150,7 +137,7 @@ st.header(" ")
 st.header(" ")
 
 st.header("Predicting Customer Income with more Data")
-uploaded_data = st.file_uploader("Choose a file with Customer Data for Predicting Customer Consumption")
+uploaded_data = st.file_uploader("Choose a file with Customer Data for Predicting Customer Income")
 
 # Add action to be done if file is uploaded
 if uploaded_data is not None:
@@ -168,9 +155,6 @@ if uploaded_data is not None:
                  
                        file_name = "scored_customer_data.csv")
     st.dataframe(guinea_pigs)
-
-    st.header(" ")
-    st.header(" ")
 
     cola, colb, colc, cold, cole, colf, colg, colh = st.columns(8)
     with cola:
@@ -194,9 +178,9 @@ if uploaded_data is not None:
     with colg:
         aa = guinea_pigs["Age"].mean()
         st.metric("Average Age", round(aa,0))
-
-    ap = guinea_pigs["predicted_income"].mean()
-    st.metric("Average Income",  round(ap,2))
+    with colh:
+        ap = guinea_pigs["predicted_income"].mean()
+        st.metric("Average Income",  round(ap,2))
      
 
     colaa, colbb = st.columns(2)
@@ -207,14 +191,14 @@ if uploaded_data is not None:
         st.header(" ")
         st.text(" ")
     
-    values2 = [awp,afp,amp,afip,asp,agp]
+        values2 = [awp,afp,amp,afip,asp,agp]
     
 
-    fig, axs = plt.subplots(figsize=(5,5))
-    wedges, texts = axs.pie(values2, wedgeprops=dict(width=0.5), startangle=-40, colors = colors1)
+        fig, axs = plt.subplots(figsize=(5,5))
+        wedges, texts = axs.pie(values2, wedgeprops=dict(width=0.5), startangle=-40, colors = colors1)
 
-    bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
-    kw = dict(arrowprops=dict(arrowstyle="-"),
+        bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
+        kw = dict(arrowprops=dict(arrowstyle="-"),
           bbox=bbox_props, zorder=0, va="center")
 
     for i, p in enumerate(wedges):
@@ -232,11 +216,11 @@ if uploaded_data is not None:
     with colbb:
         st.header("Purchases in comparison to predicted income")
     
-    options = st.selectbox(
-     'Which purchases would you like to compare?',
-     ('MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',"MntSweetProducts","MntGoldProds"))
+        options = st.selectbox(
+            'Which purchases would you like to compare?',
+            ('MntWines', 'MntFruits', 'MntMeatProducts', 'MntFishProducts',"MntSweetProducts","MntGoldProds"))
     
-    guinea_pigs.sort_values(by=[options])
+        guinea_pigs.sort_values(by=[options])
     
     
     fig3, axs = plt.subplots(figsize=(10,6.5))
