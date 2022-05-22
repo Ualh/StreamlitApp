@@ -49,6 +49,7 @@ st.markdown("The dataset used was found on" +
             " [Kaggle](https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis)\
                 .")
 #########################################################
+
 st.header(" ")
 st.header(" ")
     
@@ -130,11 +131,24 @@ with col1:
     col1.pyplot(fig1, use_container_width=True)
 
 with col2:
+    st.header(" ")
+    st.header(" ")
+ 
+    st.header(" ")    
+    st.header(" ")
+    st.header(" ")
+    st.header(" ")
+    st.header(" ")
+    st.header(" ")
+
+    
     st.header("Customer Purchases")
     st.dataframe(df)
     st.metric("Predicted Customer Income", Income, delta = round(difference, 2), delta_color="normal")
     st.text("ABOVE/BELOW average of approximatly 55 000 USD")
+    
 ####################################################
+
 st.header(" ")
 st.header(" ")
 
@@ -186,6 +200,9 @@ if uploaded_data is not None:
         st.metric("Average Income",  round(ap,2))   
         
 ####################################################
+
+st.header(" ")
+st.header(" ")
 
     colaa, colbb = st.columns(2)
 
