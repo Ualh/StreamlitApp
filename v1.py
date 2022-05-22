@@ -18,7 +18,7 @@ st.set_page_config(
     page_title= "Customer Prediciton App",
     page_icon = "📈",
     layout="wide")
-  
+
 #########################################################
 
 @st.cache()
@@ -44,12 +44,8 @@ model2 = load_model2()
 #########################################################
 
 st.title("Customer Prediction App")
-
 st.markdown("This application is a Streamlit dashboard that can be used to *analyze* and **predict** customer income")
 
-st.markdown("The dataset used was found on" +
-            " [Kaggle](https://www.kaggle.com/datasets/imakash3011/customer-personality-analysis)\
-                .")
 #########################################################
 st.header(" ")
 st.header(" ")
@@ -151,8 +147,8 @@ if uploaded_data is not None:
     guinea_pigs["predicted_income"] = model2.predict(guinea_pigs)
     
     # Add User Feedback
-    st.success("🕺🏽🎉👍 You successfully scored %i new pigs for Income prediction! 🕺🏽🎉👍" % guinea_pigs.shape[0])
-    
+    st.success("🕺🏽🎉👍 You successfully captured %i new guniea pigs for Income prediction! 👍🎉🕺🏽" % guinea_pigs.shape[0])
+
     # Add Download Button
     st.download_button(label = "Download scored customer data",
                        data = guinea_pigs.to_csv().encode("utf-8"),
@@ -161,6 +157,7 @@ if uploaded_data is not None:
     st.dataframe(guinea_pigs)
 
     cola, colb, colc, cold, cole, colf, colg, colh = st.columns(8)
+
     with cola:
         awp = guinea_pigs["MntWines"].mean()
         st.metric("Average Wine Purchases", round(awp,2))
@@ -184,8 +181,9 @@ if uploaded_data is not None:
         st.metric("Average Age", round(aa,0))
     with colh:
         ap = guinea_pigs["predicted_income"].mean()
-        st.metric("Average Income",  round(ap,2))
-     
+        st.metric("Average Income",  round(ap,2))   
+        
+####################################################
 
     colaa, colbb = st.columns(2)
 
@@ -200,7 +198,7 @@ if uploaded_data is not None:
 
         fig, axs = plt.subplots(figsize=(5,5))
         wedges, texts = axs.pie(values2, wedgeprops=dict(width=0.5), startangle=-40, colors = colors1)
-
+        
         bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
         kw = dict(arrowprops=dict(arrowstyle="-"),
           bbox=bbox_props, zorder=0, va="center")
@@ -236,12 +234,3 @@ if uploaded_data is not None:
 
 else :
     st.warning("⚠️Please upload Guineapigs file to continue⚠️", ) 
-
-
-
-
-
-
-
-
-
