@@ -239,7 +239,7 @@ if uploaded_data is not None:
     
     
     fig3, axs = plt.subplots(figsize=(10,6.5))
-    axs.scatter(guinea_pigs["predicted_income"], guinea_pigs[options], color = "crimson")
+    axs.scatter(guinea_pigs[options], guinea_pigs["predicted_income"],  color = "crimson")
     axs.set_ylabel(options + " in Units")
     axs.set_xlabel("Predicted Income in USD")
     colbb.pyplot(fig3, use_container_width=True)
